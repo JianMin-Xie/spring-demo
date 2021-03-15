@@ -1,7 +1,6 @@
 package com.xjm.service;
 
 import com.xjm.dao.UserDao;
-import com.xjm.dao.UserDaoImpl;
 
 public class UserServiceImpl implements UserService {
     private UserDao userDao;
