@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Singleton，在创建起容器时就同时自动创建了一个bean的对象，不管你是否使用，他都存在了，每次获取到的对象都是同一个对象 -->
+    <bean id="user" class="com.xjm.pojo.User" scope="singleton">
+        <property name="name" value="谢健民"></property>
+        <property name="age" value="18"></property>
+    </bean>
+
+    <!-- Prototype，在每次对该bean请求（将其注入到另一个bean中，或者以程序的方式调用容器的getBean()方法）时都会创建一个新的bean实例
+         Prototype是原型类型，它在我们创建容器的时候并没有实例化，而是当我们获取bean的时候才会去创建一个对象
+    -->
+    <bean id="user2" class="com.xjm.pojo.User" scope="prototype">
+        <property name="name" value="谢健民2"></property>
+        <property name="age" value="182"></property>
+    </bean>
+
+    <!-- Request，每个HTTP请求都会有各自的bean实例，它们依据某个bean定义创建而成 -->
+    <bean id="user3" class="com.xjm.pojo.User" scope="request">
+        <property name="name" value="谢健民3"></property>
+        <property name="age" value="183"></property>
+    </bean>
+
+
+    <!-- Session，表示在一个HTTP Session中，一个bean定义对应一个实例，该作用域仅在基于web的Spring ApplicationContext情形下有效 -->
+    <bean id="user4" class="com.xjm.pojo.User" scope="session">
+        <property name="name" value="谢健民4"></property>
+        <property name="age" value="184"></property>
+    </bean>
+
+</beans>
